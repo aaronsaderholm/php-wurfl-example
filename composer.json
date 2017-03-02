@@ -9,5 +9,7 @@
             "email": "aaronsaderholm@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "scientiamobile/wurflcloud": "^2.1"
+    }
 }

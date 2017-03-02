@@ -1,20 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="WURFL Demo">
-    <meta name="author" content="Aaron Saderholm">
+<?php
+	namespace wurfl_demo\views;
 
-    <title>WURFL Demo</title>
-    <link href="/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/global.css" rel="stylesheet">
-</head>
+	class home extends template {
 
-<body>
+		public static function render(Array $data =[]) {
 
-<div class="container">
-    <?= $view ?>
-</div>
-</body>
-</html>
+			$default_agents = $data['default_agents'];
+			$server = $data['server'];
+			$user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+		    $data['content'] = <<<HTML
+
+	<div class="row">
+		<h3>About You:</h3>
+	</div>
+	<div>
+		<form action="/post_agent" method="post">
+		<pre>
+$user_agent
+		</pre>
+		 <div class="form-group">
+		 		  	<button type="submit" class="btn btn-primary">Submit</button>
+		 </div>
+			<textarea style="display:none;" class="form-control agentTextArea" name="agents" rows="10">$user_agent</textarea>	
+
+		</form>
+	</div>
+	
+	<div class="row">
+		<h3>Enter List of Agents:</h3>
+	</div>
+
+	<div class="row">
+		<form action="/post_agent" method="post">
+		<textarea class="form-control agentTextArea" name="agents" rows="10">$default_agents</textarea>
+	  	<button type="submit" class="btn btn-primary">Get TSV File</button>
+		</form>
+	</div>
+HTML;
+
+		    if(false) {
+				$data['content'] .= <<<HTML
+	<div class="row">
+		<pre>
+		$server
+		</pre>
+	</div>
+HTML;
+
+			}
+
+            $html = template::render($data);
+            return $html;
+
+		}
+
+	}

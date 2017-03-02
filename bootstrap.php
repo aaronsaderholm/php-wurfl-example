@@ -11,9 +11,6 @@ $config = json_decode($config_json);
 $Request_URI = $_SERVER['REQUEST_URI'];
 $Request_Method = $_SERVER['REQUEST_METHOD'];
 
-echo $Request_Method."\n";
-echo $Request_URI."\n";
-
 switch ($Request_URI) {
     case "/":
         wurfl_demo\controllers\homepage::view();

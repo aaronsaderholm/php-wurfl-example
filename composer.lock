@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "c49f87530ff625ac82294ca8e4bf5c87",
+    "packages": [
+        {
+            "name": "scientiamobile/wurflcloud",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WURFL/wurfl-cloud-client-php.git",
+                "reference": "35b77557fd78718dc945e93d0764f4b7a15199b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WURFL/wurfl-cloud-client-php/zipball/35b77557fd78718dc945e93d0764f4b7a15199b9",
+                "reference": "35b77557fd78718dc945e93d0764f4b7a15199b9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "guzzle/guzzle": "3.9.*",
+                "guzzlehttp/guzzle": "6.2.*",
+                "phpunit/phpunit": "4.8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ScientiaMobile\\WurflCloud": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Steve Kamerman",
+                    "email": "support@scientiamobile.com"
+                }
+            ],
+            "description": "ScientiaMobile PHP WURFL Cloud Client",
+            "time": "2017-01-18T16:04:37+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

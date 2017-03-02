@@ -1,3 +1,11 @@
-.container {
+.container:first-of-type {
     padding-top: 50px;
+}
+
+h1:first-of-type {
+    padding-bottom: 50px;
+}
+
+.agentTextArea {
+  width: 100%;
 }
