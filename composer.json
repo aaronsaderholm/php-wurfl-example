@@ -1,0 +1,13 @@
+{
+    "name": "asaderholm/wurfl-demo",
+    "description": "Demo for ScientiaMobile",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aaron Saderholm",
+            "email": "aaronsaderholm@gmail.com"
+        }
+    ],
+    "require": {}
+}
