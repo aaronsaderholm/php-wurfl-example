@@ -1,5 +1,5 @@
 .container:first-of-type {
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 h1:first-of-type {
@@ -7,7 +7,7 @@ h1:first-of-type {
 }
 
 .agentTextArea {
-  width: 100%;
+    width: 100%;
 }
 
 .wurfl_form {
@@ -20,4 +20,18 @@ h1:first-of-type {
 
 .wurfl_aboutyou {
     margin-bottom: 50px;
+}
+
+.row {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
