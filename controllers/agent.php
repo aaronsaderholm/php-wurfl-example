@@ -29,11 +29,7 @@ class agent {
                 $result['id'],
             ];
         }
-
-        var_dump($results);
-
-        exit();
-
+        
         header('Content-type: text/tab-separated-values');
         header("Content-Disposition: attachment;filename=wurfl_tsv.tsv");
         foreach ($data as $fields) {

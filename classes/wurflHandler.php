@@ -6,12 +6,13 @@ class wurflHandler {
 
     private $client;
     private $config;
+    private $config_json;
 
-    public function __construct($config)
+    public function __construct($config_json)
     {
         $this->config = new WurflCloud\Config();
-        $this->config->api_key = $config->WURFL_API_KEY;
-
+        $this->config->api_key = $config_json->WURFL_API_KEY;
+        $this->config_json = $config_json;
     }
 
     /**
@@ -23,6 +24,10 @@ class wurflHandler {
         foreach ($agents as $agent) {
             $agent = preg_replace('/\s+/', ' ', trim($agent));
             $response_array[] = self::processAgent($agent);
+        }
+
+        if($this->config_json->debug_mode) {
+            exit();
         }
 
         return $response_array;
@@ -37,11 +42,17 @@ class wurflHandler {
         $http_request = $_SERVER;
         $http_request['HTTP_USER_AGENT'] = $agent;
         $http_request['HTTP_COOKIE'] = "";
-        #var_dump($http_request);
-        #return [];
 
         $client = new WurflCloud\Client($this->config);
         $client->detectDevice($http_request, ['complete_device_name', 'form_factor', 'is_mobile']);
+
+        if($this->config_json->debug_mode) {
+            echo "<strong>$agent</strong><br/>";
+            foreach ($client->capabilities as $name => $value) {
+                echo "<strong>$name</strong>: ".(is_bool($value)? var_export($value, true): $value) ."<br/>";
+            }
+            echo "<br/>";
+        }
 
         /*
             Capability 1 = is_mobile
