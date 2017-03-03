@@ -12,15 +12,27 @@ class agent {
 
     public static function post($config) {
 
-         {
-
-        }
-
         $wurflHandler = new wurflHandler($config);
-        #var_dump($wurflHandler->processAgentBlob($RequestString));
+        $results = $wurflHandler->processAgentBlob($_POST['agents']);
+
+
 
         $data = [];
         $data[] = array('ua','is_mobile','complete_device_name', 'form_factor', 'id');
+
+        foreach ($results as $result) {
+            $data[] = [
+                $result['ua'],
+                $result['is_mobile'],
+                $result['complete_device_name'],
+                $result['form_factor'],
+                $result['id'],
+            ];
+        }
+
+        var_dump($results);
+
+        exit();
 
         header('Content-type: text/tab-separated-values');
         header("Content-Disposition: attachment;filename=wurfl_tsv.tsv");
@@ -28,6 +40,7 @@ class agent {
             //$fields=str_replace('"','',$fields);
             //$fields=trim($fields,'"');
             echo implode("\t", $fields);
+            echo "\n";
         }
     }
 
