@@ -9,3 +9,15 @@ h1:first-of-type {
 .agentTextArea {
   width: 100%;
 }
+
+.wurfl_form {
+    width: 100%;
+}
+
+.wurfl_form textarea {
+    margin-bottom: 20px;
+}
+
+.wurfl_aboutyou {
+    margin-bottom: 50px;
+}

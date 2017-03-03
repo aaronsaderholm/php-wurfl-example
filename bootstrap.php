@@ -16,8 +16,15 @@ switch ($Request_URI) {
         wurfl_demo\controllers\homepage::view();
         exit;
         break;
+    case "/post_agent":
+        if($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+            wurfl_demo\controllers\agent::post($config);
+            exit;
+            break;
+        }
     default:
-        #header('Location: /', true, 302;
+        $WWW = $_SERVER['SERVER_NAME'];
+        header("Location: http://$WWW", true, 302);
         #exit;
     break;
 }
