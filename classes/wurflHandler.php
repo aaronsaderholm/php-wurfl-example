@@ -43,7 +43,10 @@ class wurflHandler {
         $http_request['HTTP_USER_AGENT'] = $agent;
         $http_request['HTTP_COOKIE'] = "";
 
-        $client = new WurflCloud\Client($this->config);
+        # This threw me for a loop.
+        $cache = new WurflCloud\Cache\File();
+
+        $client = new WurflCloud\Client($this->config, $cache);
         $client->detectDevice($http_request, ['complete_device_name', 'form_factor', 'is_mobile']);
 
         if($this->config_json->debug_mode) {
